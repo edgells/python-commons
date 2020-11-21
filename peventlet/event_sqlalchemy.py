@@ -1,4 +1,4 @@
-from peventlet import db_pool
+from eventlet import db_pool
 
 import sqlalchemy.orm
 
@@ -15,19 +15,3 @@ host = ''
 min_size = ''
 max_size = ''
 max_idle = ''
-
-
-try:
-
-
-
-pool_size = {
-    'db',
-}
-
-def get_engine():
-    """
-    return a sqlalchemy engine
-    :return:
-    """
-    creater = db_pool.ConnectionPool(My)

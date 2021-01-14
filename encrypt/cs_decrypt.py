@@ -1,11 +1,12 @@
 import string
 
 LETTERS = string.ascii_uppercase
+print(string.ascii_uppercase)
+print(string.ascii_lowercase)
 
 
 def caeser_decrypt(message: str):
     for key, _ in enumerate(LETTERS):
-
         translated = ''
 
         for symbol in message:

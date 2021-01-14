@@ -1,13 +1,8 @@
-
-
-
 class Foo:
-
     _instance = None
 
     def __new__(cls, *args, **kwargs):
-
-        if cls._instance == None:
+        if cls._instance is None:
             object.__init__(Foo)
 
         return cls._instance
@@ -16,15 +11,15 @@ class Foo:
 class Foo2(Foo):
 
     def __init__(self):
-
         self.a = 10
         self.b = 10
+
 
 print(id(Foo()))
 print(id(Foo2()))
 
 
-#----------------------------------------
+# ----------------------------------------
 class A:
     def __init__(self):
         pass

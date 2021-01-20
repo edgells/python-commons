@@ -1,0 +1,12 @@
+Filename: 01basic\python_mem.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+     4  40.6484 MiB  40.6484 MiB           1   @memory_profiler.profile(precision=4, stream=open('memory_profiler.log', 'w+'))
+     5                                         def my_func():
+     6  48.2812 MiB   7.6328 MiB           1       a = [1] * (10 ** 6)
+     7 200.8711 MiB 152.5898 MiB           1       b = [2] * (2 * 10 ** 7)
+     8  48.2812 MiB -152.5898 MiB           1       del b
+     9  48.2812 MiB   0.0000 MiB           1       return a
+
+

@@ -1,25 +1,66 @@
 """
+    简单工厂模式
+        创建一个关注实例化过程的类， 这个类就是工厂
 
-    抽象工厂用来创建复杂对象
-
-    这种对象由许多小对象组成， 而这些小对象都属于某个特定的系列
-
+    三个要素:
+        一个基本的操作
+        实现基本操作的类
+        创建对象的类
 """
 
 
-class DiagramFactory:
+class Operation:
 
-    def make_diagram(self, width, height):
-        return Diagram(width, height)
+    def __init__(self, number_a=0, number_b=0):
+        self.number_a = number_a
+        self.number_b = number_b
 
-    def make_rectang(self, x, y, width, height, fill='white', stroke="black"):
-        return Rectang(x, y, width, height, fill, stroke)
+    def get_result(self):
+        """
+            运算方法
+        """
+        pass
 
-    def make_text(self, x, y, text, fontsize=12):
-        return Text(x, y, text, fontsize)
+
+class OperationAdd(Operation):
+    def get_result(self):
+        """
+            加法操作
+        :return:
+        """
+        return self.number_a + self.number_a
 
 
-"""
-    如果子类某个方法要根据情况来决定用什么类去实例化相关对象， 哪么可以考虑工厂方法
-    
-"""
+class OperationSub(Operation):
+    def get_result(self):
+        """
+            减法操作
+        :return:
+        """
+        return self.number_a - self.number_b
+
+
+class CreateOperation:
+    @classmethod
+    def create_operation(cls, operation: str):
+        """
+        负责具体操作的创建
+        :param operation:
+        :return:
+        """
+        if operation == "+":
+            return OperationAdd()
+
+        elif operation == "-":
+            return OperationSub()
+
+
+def test_operation():
+    operation = CreateOperation.create_operation("+")
+    operation.number_a = 10
+    operation.number_b = 20
+    print(operation.get_result())
+
+
+if __name__ == '__main__':
+    test_operation()
